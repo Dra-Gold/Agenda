@@ -2,22 +2,23 @@
 require("error.php");
 ?>
 
-<div class="container mt-3" >
+<main class="container mt-3 jumbotron" role="main" >
             <form action="LoginService.php" method="POST">
                     <div><h3>Crear Cuenta</h3></div>
+                    <hr>
                     <input type="hidden" name="action" value="crear">
                     <div class="form-row">
                       <div class="form-group col-md-6">
-                        <label for="inputEmail">Correo Electronico</label><i class="fas fa-envelope ml-1"></i>
+                        <label for="inputEmail"><strong>Correo Electronico</strong></label><i class="fas fa-envelope ml-1"></i>
                         <input type="email" class="form-control" name="email" id="inputEmail" placeholder="Ejemplo@gmail.com" required>
                       </div>
                       <div class="form-group col-md-6">
-                        <label for="inputPassword">Contraseña</label><i class="fas fa-key ml-1"></i>
+                        <label for="inputPassword"><strong>Contraseña</strong></label><i class="fas fa-key ml-1"></i>
                         <input type="password" class="form-control" maxlength="20" minlength="6" name="contraseña" id="inputPassword" placeholder="Contraseña" required>
                       </div>
                     </div>
                     <div class="form-group">
-                      <label for="inputName">Nombre</label>
+                      <label for="inputName"><strong>Nombre</strong></label>
                       <input type="text" class="form-control" id="inputName" name="nombre" placeholder="Nombre de Usuario" required>
                     </div>
                     <div class="form-group">
@@ -32,6 +33,6 @@ require("error.php");
                     </div>
                     <button type="submit"  class="btn btn-primary">Crear Cuenta</button>
                   </form>
-</div>
+</main>
 
 <?php require("Footer.php") ?>
