@@ -1,6 +1,6 @@
 <?php
 //se llama a la conexion
-require("Conexion/conexion.php");
+require("../Conexion/conexion.php");
 
 class UserService extends Conexion{
 

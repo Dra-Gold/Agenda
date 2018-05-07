@@ -15,8 +15,9 @@ if(isset($_POST['action']) && $_POST['action'] == 'crear')
     //se verifica le existencia del usuario
     if($UserSer->get_Email($Email))
     {
-        setcookie("error","El correo ya ha sido registrado",time()+60*60);
-        header("location:UserNewForm.php");
+        //Por alguna razon las cookies no funcionan?
+        //setcookie("error","El correo ya ha sido registrado",time()+60*360);
+        header("location:../UserNew.php?error=01");
     }
     else
     {
@@ -24,11 +25,12 @@ if(isset($_POST['action']) && $_POST['action'] == 'crear')
     if($UserSer->create_User($Nombre,$Email,$Password,$Genero)!=0)
     {
         //se redirige al usuario a una pagina confirmando la creacion del nuevo usuario
-        header("location:index.php");
+        header("location:../index.php");
     }else{
+        //Por alguna razon las cookies no funcionan?
          //se redirige al usuario y se le informa del error 
-        setcookie("error","Ocurrio un error interno",time()+60*60);
-        header("location:UserNewForm.php");
+        //setcookie("error","Ocurrio un error interno",time()+60*360);
+        header("location:../UserNew.php?error=02");
     }
     }
 
@@ -49,12 +51,12 @@ if(isset($_POST['action']) && $_POST['action'] == 'verificar')
         $_SESSION["Estado"]="Verificado";
         $_SESSION["correo"]=$Email;
         $_SESSION["usuario"]=$Username;
-        header("Location:index.php");
+        header("Location:../index.php");
     }
     else
     {
-        setcookie("error","El correo o contraseña incorrecto",time()+60*60);
-        header("Location:LoginUserForm.php");
+        //setcookie("error","El correo o contraseña incorrecto",time()+60*60);
+        header("Location:../LoginUser.php?error=03");
     }
   
 
