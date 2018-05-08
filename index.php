@@ -18,15 +18,20 @@
         </button>
         <div class="collapse navbar-collapse" id="navbarNavAgenda">
              <div class="navbar-nav mr-auto">
-                <a class="nav-item nav-link active" href="#">Inicio <span class="sr-only">(current)</span></a>
+                <a class="nav-item nav-link " href="#">Inicio </a>
                 <a class="nav-item nav-link" href="#">Nosotros</a>
                 <a class="nav-item nav-link" href="#">Servicios</a>
                 <a class="nav-item nav-link " href="#">Contacto</a>
+            <?php
+            session_start();
+            if(isset($_SESSION["Estado"]) && $_SESSION["Estado"] == 'Verificado') 
+            {
+                echo "<a class='nav-item nav-link' href='Shedule.php'>Agenda</a>";
+            }?>
             </div>
             <div class="navbar-nav ">
             <?php
-            session_start();
-            if(isset($_SESSION["Estado"])) 
+            if(isset($_SESSION["Estado"]) && $_SESSION["Estado"] == 'Verificado' ) 
             {
                 echo "<a class='nav-item nav-link' href='index.php'>Bienvenido " . $_SESSION["usuario"].  "</a>";
                 echo "<a class='nav-item nav-link' href='Service/Salir.php'>Salir</a>";
